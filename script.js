@@ -73,4 +73,5 @@ class Particle {
 AOS.init({
     once: false, 
     duration: 1500, 
+    disable: 'mobile'
 });
