@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Damian Thingshung</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        @media only screen and (max-width : 768px) {
+            .details {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                width: 100%;
+                transform: translate(-50%, -50%);
+                margin: 0;
+            }
+        }
+
+
+
+        @media only screen and (min-width : 769px) {
+            .details {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                margin: 0;
+            }
+        }
+    </style>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="details">
+        <figure class="bg-black bg-opacity-0 rounded-xl p-8">
+            <div class="flex flex-wrap justify-center">
+                <div class="">
+                    <img src="/profile.jpg" alt="Profile Picture"
+                        class="shadow-lg rounded-full w-60 h-auto align-middle border-none" />
+                    <!-- <img src="https://pamraktech.com/storage/passport.jpg" alt="Profile Picture"
+                        class="shadow-lg rounded-full w-60 h-auto align-middle border-none" /> -->
+                </div>
+            </div>
+            <div class="pt-6 text-center space-y-4">
+                <figcaption class="font-medium">
+                    <div class="">
+                        <span class="text-xl text-white">Damian Thingshung</span>
+                    </div>
+                    <div class="mt-3">
+                        <I class="text-sm text-white">Loves programming and graphic designing</I>
+                    </div>
+                    <div class="mt-5">
+                        <a href="tel:919863429588" class="text-white">
+                            <i class="fa fa-phone"></i>&nbsp;&nbsp; +91-9863-429-588</a>
+                    </div>
+                    <div class="mb-5">
+                        <a href="mailto:damianthingshung@gmail.com" class="text-white break-all">
+                            <i class="fa fa-envelope" class="text-white"></i>&nbsp;&nbsp; damianthingshung@gmail.com</a>
+                    </div>
+                    <!-- <div class="mb-5">
+                        <blockquote>
+                            <p class="text-white text-lg font-semibold">
+                                “If you want a mobile app or website
+                                dont hesitate to contact me.”
+                            </p>
+                        </blockquote>
+                    </div> -->
+                </figcaption>
+
+                <blockquote>
+                    <div class="h-16"></div>
+                    <p class="text-white text-lg font-semibold">
+                        “If you want a mobile app or website
+                        dont hesitate to contact me.”
+                    </p>
+                </blockquote>
+            </div>
+        </figure>
+        <!-- <div class="mt-auto">
+            <blockquote>
+                <p class="text-white text-lg font-semibold">
+                    “If you have a project or question in mind dont hesitate to contact me.”
+                </p>
+            </blockquote>
+        </div> -->
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+    <script>
+        const particles = [];
+        function setup() {
+            createCanvas(window.innerWidth, window.innerHeight);
+
+            const particlesLength = Math.min(
+                Math.floor(window.innerWidth / 10),
+                100
+            );
+            for (let i = 0; i < particlesLength; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function windowResized() {
+            resizeCanvas(window.innerWidth, window.innerHeight);
+        }
+
+        function draw() {
+            background(0);
+
+            particles.forEach((particle, idx) => {
+                particle.update();
+                particle.draw();
+                particle.checkParticles(particles.slice(idx));
+            });
+        }
+
+        class Particle {
+            constructor() {
+                this.pos = createVector(random(width), random(height));
+                this.vel = createVector(random(-2, 2), random(-2, 2));
+                this.size = 5;
+            }
+
+            update() {
+                this.pos.add(this.vel);
+                this.edges();
+            }
+
+            draw() {
+                noStroke();
+                fill('rgba(255, 255, 255, 0.5)');
+                circle(this.pos.x, this.pos.y, this.size * 2);
+            }
+
+            edges() {
+                if (this.pos.x < 0 || this.pos.x > width) {
+                    this.vel.x *= -1;
+                }
+
+                if (this.pos.y < 0 || this.pos.y > height) {
+                    this.vel.y *= -1;
+                }
+            }
+
+            checkParticles(particles) {
+                particles.forEach((particle) => {
+                    const d = dist(
+                        this.pos.x,
+                        this.pos.y,
+                        particle.pos.x,
+                        particle.pos.y
+                    );
+                    if (d < 120) {
+                        const alpha = map(d, 0, 120, 0, 0.25);
+                        stroke(`rgba(255, 255, 255, ${alpha})`);
+                        line(this.pos.x, this.pos.y, particle.pos.x, particle.pos.y);
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
