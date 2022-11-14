@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Damian Thingshung</title>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+    <!-- Styles -->
+    <style>
+        html,
+        body {
+            background-color: #fff;
+            /* color: #636b6f; */
+            color: #636b6f;
+            font-family: 'Nunito', sans-serif;
+            /* font-weight: 200; */
+            height: 100vh;
+            margin: 0;
+        }
+
+
+        .full-height {
+            height: 100vh;
+        }
+
+        .flex-center {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .position-ref {
+            position: relative;
+        }
+
+        .top-right {
+            position: absolute;
+            right: 10px;
+            top: 18px;
+        }
+
+        .contentIntro {
+            text-align: center;
+        }
+
+        .title {
+            font-size: 44px;
+            color: #ffffff;
+        }
+
+        /* .title { */
+        /* color: #636b6f; */
+        /* font-family: 'Nunito', sans-serif; */
+        /* font-weight: 200; */
+        /* height: 100vh; */
+        /* margin: 0; */
+        /* } */
+
+        .links>a {
+            color: #ffffff;
+            /* padding: 0 25px; */
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .m-b-md {
+            margin-bottom: 30px;
+        }
+
+        .button {
+            /* background-color: #4CAF50; */
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s;
+            /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+            /* background-color: white;  */
+            color: black;
+            border: 2px solid #ffffff;
+        }
+
+        .button1:hover {
+            background-color: #00cccc;
+            color: white;
+        }
+
+        .mainHead {
+            background-color: #000000;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(0, 0, 0);
+            background-image: url("");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50% 50%;
+            z-index: 100;
+        }
+
+        #inside {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* roadmap */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* body {
+            background-color: #474e5d;
+            font-family: Helvetica, sans-serif;
+        } */
+
+        #roadmapSection {
+            background-color: #474e5d;
+            font-family: Helvetica, sans-serif;
+        }
+
+        /* The actual timeline (the vertical ruler) */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* The actual timeline (the vertical ruler) */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: white;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        /* containerRoadmap around content */
+        .containerRoadmap {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        /* The circles on the timeline */
+        .containerRoadmap::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            /* right: -17px; */
+            right: -12px;
+            background-color: white;
+            border: 4px solid #FF9F55;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* Place the containerRoadmap to the left */
+        .left {
+            left: 0;
+        }
+
+        /* Place the containerRoadmap to the right */
+        .right {
+            left: 50%;
+        }
+
+        /* Add arrows to the left containerRoadmap (pointing right) */
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+
+        /* Add arrows to the right containerRoadmap (pointing left) */
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        /* Fix the circle for containerRoadmaps on the right side */
+        .right::after {
+            /* left: -16px; */
+            left: -12px;
+        }
+
+        /* The actual content */
+        .content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+        }
+
+        /* Media queries - Responsive timeline on screens less than 600px wide */
+        @media screen and (max-width: 600px) {
+
+            /* Place the timelime to the left */
+            .timeline::after {
+                left: 31px;
+            }
+
+            /* Full-width containerRoadmaps */
+            .containerRoadmap {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            /* Make sure that all arrows are pointing leftwards */
+            .containerRoadmap::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+
+            /* Make sure all circles are at the same spot */
+            .left::after,
+            .right::after {
+                /* left: 15px; */
+                left: 18px;
+            }
+
+            /* Make all right containerRoadmaps behave like the left ones */
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-center position-ref full-height mainHead" id="top">
+        <div id="particles-js">
+            <div class="contentIntro" id="inside">
+
+                <div class="title m-b-md">
+                    Hello, I'm <span style="color: #ff0066">Damian Thingshung</span>.<br>
+                    I'm a web developer.
+                </div>
+
+                <div class="links">
+                    <a href="#navigation" class="button button1">More <i class="fa fa-arrow-down"
+                            aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm" id="navigation">
+            <div class="container">
+                <!-- <a class="navbar-brand" href="https://www.pamraktech.com/"> -->
+                <!-- <a class="navbar-brand" href="https://damianthingshung.github.io/"> -->
+                <a class="navbar-brand" href="/">
+                    Damian Thingshung
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#about" class="btn btn-dark">About</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="#roadmapSection" class="btn btn-dark">Roadmap</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#projects" class="btn btn-dark">Projects</a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a href="#contact" class="btn btn-dark">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-12" id="about">
+                    <h2 class="text-center my-5"><strong>ABOUT</strong></h2>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-6 text-center mb-5" id="">
+                    <img src="storage/passport.jpg" class="rounded-circle" alt="Image" width="250" height="250">
+                    <h4 class="my-4"><strong>Who am I?</strong></h4>
+                    <p>
+                        I am a web developer. I love programming and enjoy bringing pages to life. I have a strong
+                        preference for easy to use, intuitive UX/UI.
+                    </p>
+                    <p>
+                        Besides programing, I also enjoy graphic design and crafting.<br>
+                    </p>
+                    <!-- <p>
+                        I am a web developer. I love programing and enjoy bringing pages to live. I have a strong
+                        preference for easy to use, intuitive UX/UI.
+                    </p>
+                    <p>
+                        Apart from programing I like graphic designing and crafting.<br>
+                    </p> -->
+                </div>
+                <div class="col-md-6 mb-5" id="">
+                    <h4 class="text-center">My skills</h4>
+                    <ul type="none" class="ml-0 mt-3">
+                        <li><b>Programming</b></li>
+                        <ul>
+                            <li>HTML, CSS</li>
+                            <ul>
+                                <li>Bootstrap, Tailwind</li>
+                            </ul>
+                            <li>Javascript</li>
+                            <ul>
+                                <li>React, Vue, Gatsby, NodeJS</li>
+                            </ul>
+                            <li>PHP</li>
+                            <ul>
+                                <li>Laravel, CodeIgniter, Wordpress</li>
+                            </ul>
+                            <li>Java</li>
+                            <li>C#</li>
+                            <ul>
+                                <li>Unity Game Engine</li>
+                            </ul>
+                            <li>Dart</li>
+                            <ul>
+                                <li>Flutter</li>
+                            </ul>
+                            <li>Database</li>
+                            <ul>
+                                <li>MySQL, PostgreSQL, GraphQL, Firebase, AWS</li>
+                            </ul>
+                            <li>Docker</li>
+                        </ul>
+                        <li><strong>Graphics</strong></li>
+                        <ul>
+                            <li>Photoshop</li>
+                            <li>Illustrator</li>
+                            <li>Adobe XD</li>
+                        </ul>
+                        <li><strong>Multimedia</strong></li>
+                        <ul>
+                            <li>Audacity</li>
+                            <li>Premiere Pro</li>
+                        </ul>
+                        <li><strong>Others</strong></li>
+                        <ul>
+                            <li>Desktop Assembly</li>
+                            <li>Basic Networking</li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+            <!-- <hr class="my-5"> -->
+        </div>
+
+        <!-- <div class="row w-100">
+            <div class="col-md-12" id="roadmapSection">
+                <h2 class="text-center my-5 text-white"><strong>ROADMAP</strong></h2>
+                <div class="timeline mb-5">
+                    <div class="containerRoadmap right">
+                        <div class="content">
+                            <h2>2008 - 2012</h2>
+                            <p>
+                            <ul>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>QBasic</li>
+                                <li>C</li>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="containerRoadmap left">
+                        <div class="content">
+                            <h2>2013 - 2015</h2>
+                            <p>
+                            <ul>
+                                <li>Javascript</li>
+                                <li>VB.net</li>
+                                <li>Java</li>
+                                <li>C++</li>
+                                <li>C#</li>
+                                <li>MySQL</li>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="containerRoadmap right">
+                        <div class="content">
+                            <h2>2016</h2>
+                            <p>
+                            <ul>
+                                <li>Unity Game Engine</li>
+                                <li class="mt-3">
+                                    <b>Endless Runner Game:</b><br>
+                                    Endless 2D running game with the objective to collect as much coins as possible
+                                    while avoiding obstables.
+                                </li>
+                                <ul>
+                                    <li><b>Engine:</b> Unity Game Engine</li>
+                                    <li><b>Language:</b> C#</li>
+                                    <li><b>Platform:</b> Android, Windows</li>
+
+                                </ul>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="containerRoadmap left">
+                        <div class="content">
+                            <h2>2017</h2>
+                            <p>
+                            <ul>
+                                <li>
+                                    <b>Koyo Game:</b><br>
+                                    2D game like Flappy Bird.
+                                </li>
+                                <ul>
+                                    <li><b>Engine:</b> Unity Game Engine</li>
+                                    <li><b>Language:</b> C#</li>
+                                    <li><b>Platform:</b> Android, Windows</li>
+                                </ul>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="containerRoadmap right">
+                        <div class="content">
+                            <h2>2018</h2>
+                            <p>
+                            <ul>
+                                <li>PHP</li>
+                                <li>JQuery</li>
+                                <li>Bootstrap</li>
+                                <li class="mt-3">
+                                    <b>Tangkhul Open Dictionary:</b><br>
+                                    Open dictionary for Tangkhul dialect where users can contribute words. Created
+                                    to help preserve the indigenous language.
+                                </li>
+                                <ul>
+                                    <li><b>Language / Library:</b> PHP, JQuery</li>
+                                    <li><b>Platform:</b> Android, Web</li>
+                                </ul>
+                                <p class="mt-3">
+                                    <i class="fa fa-android"></i>&nbsp;
+                                    <a href="https://play.google.com/store/apps/details?id=com.tangkhulenglishdictionary.tangkhulenglishdictionary"
+                                        target="_blank">App
+                                        Link</a>
+
+                                    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+
+
+                                    <i class="fa fa-globe"></i>&nbsp;
+                                    <a href="https://www.tangkhulopendictionary.com/" target="_blank">Web
+                                        Link</a>
+                                </p>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="containerRoadmap left">
+                        <div class="content">
+                            <h2>2019</h2>
+                            <p>
+                            <ul>
+                                <li>Wordpress</li>
+                                <li class="mt-3">
+                                    <b>TKLS Blog Website:</b><br>
+                                    Website for Tangkhul Students Organization Shillong to share information to the
+                                    students.
+                                </li>
+                                <ul>
+                                    <li><b>Language / CMS:</b> PHP, Wordpress</li>
+                                    <li><b>Platform:</b> Web</li>
+                                </ul>
+                                <li class="mt-3">
+                                    <b>Online Furniture Portal:</b><br>
+                                    Website for selling and buying furniture for local carpenters/craftsmen.
+                                </li>
+                                <ul>
+                                    <li><b>Language / Library:</b> PHP, JQuery, MySQL</li>
+                                    <li><b>Platform:</b> Web</li>
+                                </ul>
+                                <li class="mt-3">
+                                    <b>Census Collection Website:</b><br>
+                                    Website for collecting census for community.
+                                </li>
+                                <ul>
+                                    <li><b>Language / Library:</b> PHP, JQuery, MySQL</li>
+                                    <li><b>Platform:</b> Web</li>
+                                </ul>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="containerRoadmap right">
+                        <div class="content">
+                            <h2>2020</h2>
+                            <p>
+                            <ul>
+                                <li>Laravel</li>
+                                <li>AWS</li>
+                                <li>Tailwind</li>
+                                <li>React</li>
+                                <li class="mt-3">
+                                    <b>Scoopcut:</b><br>
+                                    Movie rental website using AWS services and Razorpay for Payment Gateway
+                                    Integration.
+                                </li>
+                                <ul>
+                                    <li><b>Language / Framework:</b> PHP, Laravel</li>
+                                    <li><b>Hosting:</b> AWS</li>
+                                    <li><b>Platform:</b> Android, Web, PWA</li>
+                                </ul>
+                                <p class="mt-3">
+                                    <i class="fa fa-android"></i>&nbsp;
+                                    <a href="https://play.google.com/store/apps/details?id=com.provibes.scoopcut"
+                                        target="_blank">App
+                                        Link</a>
+
+                                    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+
+
+                                    <i class="fa fa-globe"></i>&nbsp;
+                                    <a href="https://www.scoopcut.com/" target="_blank">Web
+                                        Link</a>
+                                </p>
+                                <li class="mt-5">
+                                    <b>CareerPathFinder:</b><br>
+                                    Website for Career Path Finder institution along with a blog.
+                                </li>
+                                <ul>
+                                    <li><b>Language / CMS:</b> PHP, Wordpress</li>
+                                    <li><b>Platform:</b> Web</li>
+                                </ul>
+                                <p class="mt-3">
+                                    <i class="fa fa-globe"></i>&nbsp;
+                                    <a href="https://careerpathfinder.in/" target="_blank">Web
+                                        Link</a>
+                                </p>
+                                <li class="mt-5">
+                                    <b>Behaviour Change Management APP:</b><br>
+                                    A training platform of NHM Meghalaya for citizens and all cadres on COVID19
+                                    Pandemic.
+                                </li>
+                                <ul>
+                                    <li><b>Language / Framework:</b> Dart, Flutter</li>
+                                    <li><b>Platform:</b> Android, iOS</li>
+                                </ul>
+                                <p class="mt-3">
+                                    <i class="fa fa-android"></i>&nbsp;
+                                    <a href="https://play.google.com/store/apps/details?id=com.peace.nhm.contentdelivery&hl=en_IN&gl=US"
+                                        target="_blank">Android
+                                        Link</a>
+
+                                    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+
+
+                                    <i class="fa fa-apple"></i>&nbsp;
+                                    <a href="https://apps.apple.com/in/app/behavior-change-management-app/id1558061811"
+                                        target="_blank">iOS
+                                        Link</a>
+                                </p>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="containerRoadmap left">
+                        <div class="content">
+                            <h2>2021</h2>
+                            <p>
+                            <ul>
+                                <li>Firebase</li>
+                                <li>Jekyll</li>
+                                <li class="mt-3">
+                                    <b>TKLS APP:</b><br>
+                                    Information delivery app for Tangkhul Students Organisation Shillong for sending
+                                    information
+                                    to the students using Firebase and Google Cloud Messaging for push notifications.
+                                </li>
+                                <ul>
+                                    <li><b>Language / Framework:</b> Dart, Flutter</li>
+                                    <li><b>Database:</b> Firebase</li>
+                                    <li><b>Push Notification:</b> Google Cloud Messaging</li>
+                                    <li><b>Platform:</b> Android</li>
+                                </ul>
+                                <p class="mt-3">
+                                    <i class="fa fa-android"></i>&nbsp;
+                                    <a href="https://play.google.com/store/apps/details?id=in.tangkhul.tkls"
+                                        target="_blank">App
+                                        Link</a>
+                                </p>
+                                <li class="mt-5">
+                                    <b>Hungpung APP:</b><br>
+                                    Information sharing app for Hungpung village, Manipur.
+                                </li>
+                                <ul>
+                                    <li><b>Language / Framework:</b> Dart, Flutter</li>
+                                    <li><b>Database:</b> Firebase</li>
+                                    <li><b>Push Notification:</b> Google Cloud Messaging</li>
+                                    <li><b>Platform:</b> Android</li>
+                                </ul>
+                                <p class="mt-3">
+                                    <i class="fa fa-android"></i>&nbsp;
+                                    <a href="https://play.google.com/store/apps/details?id=in.tangkhul.hungpung"
+                                        target="_blank">App
+                                        Link</a>
+                                </p>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" id="projects">
+                    <h2 class="text-center my-5"><strong>PROJECTS</strong></h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 mb-5">
+                        <div class="card-header">
+                            <img class="card-img-top" src="storage/nhm2.jpg" alt="Image">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="mb-3">Behaviour Change Management</h5>
+                            <p>
+                                A training platform of NHM Meghalaya for citizens and all cadre’s on COVID19
+                                Pandemic.
+                            </p>
+                            <p>
+                                <b>Framework:</b> Flutter, Dart<br>
+                                <b>Platform:</b> Android, iOS
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://play.google.com/store/apps/details?id=com.peace.nhm.contentdelivery"
+                                class="btn btn-primary btn-block" target="_blank"><i class="fa fa-eye"></i> View</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 mb-5">
+                        <div class="card-header">
+                            <img class="card-img-top" src="storage/scoopcut2.jpg" alt="Image">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="mb-3">Scoopcut</h5>
+                            <p>Movie rental website using AWS services and Razorpay for Payment Gateway
+                                Integration.</p>
+                            <p>
+                                <b>Framework:</b> Laravel, PHP<br>
+                                <b>Platform:</b> Web, WPA, Android
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://www.scoopcut.com/" class="btn btn-primary btn-block" target="_blank"><i
+                                    class="fa fa-eye"></i> View</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 mb-5">
+                        <div class="card-header">
+                            <img class="card-img-top" src="storage/tklsapp2.jpg" alt="Image">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="mb-3">TKLS</h5>
+                            <p>Information delivery app for Tangkhul Students Organisation Shillong for sending
+                                information
+                                to the students using Firebase and Google Cloud Messaging for push notifications.
+                            </p>
+                            <p>
+                                <b>Framework:</b> Flutter, Dart<br>
+                                <b>Platform:</b> Android
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://play.google.com/store/apps/details?id=in.tangkhul.tkls"
+                                class="btn btn-primary btn-block" target="_blank"><i class="fa fa-eye"></i> View</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 mb-5">
+                        <div class="card-header">
+                            <img class="card-img-top" src="storage/careerpathfinder.jpg" alt="Image">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="mb-3">Career Path Finder</h5>
+                            <p>
+                                Website for Career Path Finder institution along with a blog.
+                            </p>
+                            <p>
+                                <b>Framework:</b> Wordpress, PHP<br>
+                                <b>Platform:</b> Web
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://careerpathfinder.in/" class="btn btn-primary btn-block" target="_blank"><i
+                                    class="fa fa-eye"></i> View</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 mb-5">
+                        <div class="card-header">
+                            <img class="card-img-top" src="storage/tklsblog.jpg" alt="Image">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="mb-3">TKLS Blog</h5>
+                            <p>Blog website for Tangkhul Students Organisation Shillong to share information to the
+                                students.</p>
+                            <p>
+                                <b>Framework:</b> Wordpress, PHP<br>
+                                <b>Platform:</b> Web
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://www.tkls.org/" class="btn btn-primary btn-block" target="_blank"><i
+                                    class="fa fa-eye"></i> View</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 mb-5">
+                        <div class="card-header">
+                            <img class="card-img-top" src="storage/tangkhul.png" alt="Image">
+                        </div>
+                        <div class="card-body  text-center">
+                            <h5 class="mb-3">Tangkhul English Dictionary</h5>
+                            <p>Open dictionary for Tangkhul dialect where user can contribute words. Created to help
+                                preserve the indigenous language.</p>
+                            <p>
+                                <b>Language:</b> PHP, MySQL, Java<br>
+                                <b>Platform:</b> Web, Android
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://play.google.com/store/apps/details?id=com.tangkhulenglishdictionary.tangkhulenglishdictionary"
+                                class="btn btn-primary  btn-block" target="_blank"><i class="fa fa-eye"></i>
+                                View</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-stretch">
+
+                    <div class="card w-100 mb-5">
+                        <div class="card-header">
+                            <img class="card-img-top" src="storage/hajong.png" alt="Image">
+                        </div>
+
+                        <div class="card-body text-center ">
+                            <h5 class="mb-3">Census Collection</h5>
+                            <p>Website for collecting census for the a community.</p>
+                            <p>
+                                <b>Language:</b> PHP, MySQL, JS<br>
+                                <b>Platform:</b> Web
+                            </p>
+
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://www.tkls.org/" class="btn btn-primary btn-block disabled"
+                                target="_blank"><i class="fa fa-eye"></i> View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <hr class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" id="contact">
+                    <h2 class="text-center mb-5"><strong>CONTACT</strong></h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center" id="">
+                    <h3 class="mb-4">Contact me if you want to make website or app.</h3>
+                </div>
+            </div>
+            <!-- <div class="row justify-content-center">
+                <div class="col-md-6 text-center mt-5" id="">
+                    <form class="form-horizontal" role="form" method="post" action="mail.php">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="4" name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" name="submit" class="btn btn-primary btn-block">SEND</button>
+                        </div>
+                    </form>
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col-md-12 text-center" id="">
+                    <!-- <p>
+                        <a href="tel:919863429588" class="">
+                            <i class="fa fa-phone"></i>&nbsp;&nbsp; +91-9863-429-588</a>
+                    </p> -->
+                    <p>
+                        <!-- <strong>Email: </strong> -->
+                        <a href="mailto:damianthingshung@gmail.com" class=" break-all">
+                            <i class="fa fa-envelope" class="text-white"></i>&nbsp;&nbsp;
+                            damianthingshung@gmail.com</a>
+                        &nbsp;
+                        <button class="btn btn-outline-primary btn-sm" onclick="copyText()"><i class="fa fa-copy"
+                                class="text-white"></i>&nbsp; COPY</button>
+                    </p>
+
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+
+                </div>
+            </div>
+            <div class="my-5">&nbsp;</div>
+        </div>
+        <div class="footer py-3 text-center">
+            Damian Thingshung &copy;
+            <script>document.write(new Date().getFullYear())</script>
+            <a href="#top" class="btn btn-info ml-3">Top <i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("a").on('click', function (event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+
+                    var hash = this.hash;
+
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function () {
+
+                        window.location.hash = hash;
+                    });
+                }
+            });
+        });
+    </script>
+    <script>
+        function copyText() {
+            navigator.clipboard.writeText
+                ("damianthingshung@gmail.com");
+        }
+    </script>
+
+</body>
+
+</html>
